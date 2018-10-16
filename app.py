@@ -1,17 +1,7 @@
 from flask import Flask, request, json,Response
 import os
-import time
-from werkzeug import secure_filename
-from pathlib import Path
-from flask_json import FlaskJSON,jsonify, JsonError, json_response, as_json
-ALLOWED_EXTENSIONS = set(['pem'])
 app = Flask(__name__)
 cwd = os.getcwd()
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
 
 @app.route("/")
 def hello():
