@@ -1,0 +1,21 @@
+FROM ubuntu:latest
+
+MAINTAINER Dinesh Kumar "RJIL"
+# Update aptitude with new repo
+ENV LC_ALL=C
+
+# Install software
+RUN    apt-get update \
+    && apt-get install -y git \
+    && apt-get install -y putty
+RUN git clone https://github.com/Dinesh21Kumar/PemToPPK.git 
+RUN    apt-get install -y wget \
+    && apt-get install -y python \
+    && wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py \
+    && /usr/bin/python2.7 /tmp/get-pip.py \ 
+    && /usr/local/bin/pip2.7 install pathlib \ 
+    && /usr/local/bin/pip2.7 install Flask \
+    && /usr/local/bin/pip2.7 install flask_json 
+
+EXPOSE 5000
+RUN python /PemToPPK/app.py &

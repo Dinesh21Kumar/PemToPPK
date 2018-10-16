@@ -23,10 +23,10 @@ def pemtoppk():
         try:
             user_name = request.form.get('user_name')
             pem_key = request.form.get('pem_key')
-            print "print username "
-            print user_name
-            print "print input pem key "
-            print pem_key
+            print ("print username ")
+            print (user_name)
+            print ("print input pem key ")
+            print (pem_key)
             pemFileName = user_name + ".pem"
             pemFile = open(pemFileName, "w")
             pemFile.write(pem_key)
@@ -35,7 +35,7 @@ def pemtoppk():
             os.system("puttygen " + pemFileName  + " -O private -o "+ ppkFileName)
             ppkFile = open(ppkFileName, "r")
             ppkKey = ppkFile.read()
-            print ppkKey
+            print (ppkKey)
             data = {'key': ppkKey}
             js = json.dumps(data)
             resp = Response(ppkKey,status=200,mimetype='text/html')
@@ -43,7 +43,7 @@ def pemtoppk():
             os.system("rm -rf "+ ppkFileName)
             return resp
         except Exception as ex:
-            print ex
+            print (ex)
             return Response(error = ex,status=400,mimetype='text/html')
 
 
