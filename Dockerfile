@@ -14,4 +14,4 @@ RUN git clone https://github.com/Dinesh21Kumar/PemToPPK.git \
     && pip install flask_json 
 
 EXPOSE 5000
-CMD python /PemToPPK/app.py &
+ENTRYPOINT python /PemToPPK/app.py 
