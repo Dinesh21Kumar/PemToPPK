@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 
 # Install required software
 RUN    apt-get update \
-    && apt-get install -y putty
+    && apt-get install -y putty-tools
 RUN    pip install pathlib \ 
     && pip install Flask \
     && pip install flask_json
