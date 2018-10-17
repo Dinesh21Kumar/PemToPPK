@@ -13,7 +13,7 @@ def pemtoppk():
         try:
             output_filename = request.form.get('output_filename')
             pem_key = request.form.get('pem_key')
-            #print ("print username ")
+            #print ("print output filename ")
             #print (output_filename)
             #print ("print input pem key ")
             #print (pem_key)
