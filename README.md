@@ -4,14 +4,19 @@ Description: This is a simple python program to convert .pem key file to .ppk fi
 
 How to run ?
 
-1. Create a ubuntu server or you can try this code on your location ubuntu machine also.Open your cmd and follow the steps.
-2. sudo apt-get update
-3. sudo apt-get install putty
-4. apt-get install python
-5. Follow the steps to install pip , install flask. https://medium.com/python-pandemonium/build-simple-restful-api-with-python-and-flask-part-1-fae9ff66a706
-6. If pip gives error then use  export LC_ALL=C
-7. pip install pathlib
-8. python2.7 app.py
+1. docker pull dinesh63504kumar/pemtoppk
+2. docker create -it -p 5000:5000 dinesh63504kumar/pemtoppk bash
+3. docker start <container-id>
+4. Open Postman client
 
+API URL: http://localhost:5000/pemtoppk
+REQ Type: POST
+Body:
+form-data 
+{
+"pem_key":"paste your RSA format .pem key in text format"
+"output_filename": "Input some ppk file name"
+}
 
-
+Response: 
+Content of .ppk file in text format.
