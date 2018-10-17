@@ -9,10 +9,11 @@ How to run ?
 3. docker start <container-id>
 4. Open Postman client
 
-API URL: http://localhost:5000/pemtoppk
-REQ Type: POST
-Body:
-form-data 
+API URL: http://localhost:5000/pemtoppk .
+
+
+REQ Type: POST.
+Body: In form-data.
 {
 "pem_key":"paste your RSA format .pem key in text format"
 "output_filename": "Input some ppk file name"
