@@ -5,29 +5,27 @@ cwd = os.getcwd()
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return "Service health check OK!\n"
 
-@app.route('/pemtoppk',methods=["GET","POST"])
+@app.route('/pemtoppk',methods=["POST"])
 def pemtoppk():
     if request.method == 'POST':
         try:
-            user_name = request.form.get('user_name')
+            output_filename = request.form.get('output_filename')
             pem_key = request.form.get('pem_key')
-            print ("print username ")
-            print (user_name)
-            print ("print input pem key ")
-            print (pem_key)
-            pemFileName = user_name + ".pem"
+            #print ("print username ")
+            #print (output_filename)
+            #print ("print input pem key ")
+            #print (pem_key)
+            pemFileName = output_filename + ".pem"
             pemFile = open(pemFileName, "w")
             pemFile.write(pem_key)
             pemFile.close()
-            ppkFileName = user_name+ ".ppk"
+            ppkFileName = output_filename + ".ppk"
             os.system("puttygen " + pemFileName  + " -O private -o "+ ppkFileName)
             ppkFile = open(ppkFileName, "r")
             ppkKey = ppkFile.read()
             print (ppkKey)
-            data = {'key': ppkKey}
-            js = json.dumps(data)
             resp = Response(ppkKey,status=200,mimetype='text/html')
             os.system("rm -rf "+ pemFileName)
             os.system("rm -rf "+ ppkFileName)
