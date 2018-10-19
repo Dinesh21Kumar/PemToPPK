@@ -1,6 +1,6 @@
 FROM python:3.4.9-slim-jessie
 
-MAINTAINER mayankkapoormail@gmail.com
+MAINTAINER mayankkapoormail@gmail.com, dineshkumar13506@gmail.com
 # Update aptitude with new repo
 ENV LC_ALL=C
 
