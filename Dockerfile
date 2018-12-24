@@ -14,7 +14,7 @@ RUN    pip install pathlib \
     && pip install Flask \
     && pip install flask_json \
     && pip install keystoneauth1 \
-    && pip install keystoneclient
+    && pip install python-keystoneclient
 
 # Bundle app source code
 COPY app.py .
