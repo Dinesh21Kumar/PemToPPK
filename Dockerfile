@@ -13,6 +13,8 @@ RUN    apt-get update \
 RUN    pip install pathlib \ 
     && pip install Flask \
     && pip install flask_json
+    && pip install keystoneauth1
+    && pip install keystoneclient
 
 # Bundle app source code
 COPY app.py .
