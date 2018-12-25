@@ -1,8 +1,6 @@
 from flask import Flask, request, json,Response
 import os
-
 import openstackssotoken as opn
-
 app = Flask(__name__)
 cwd = os.getcwd()
 
@@ -38,7 +36,7 @@ def pemtoppk():
         except Exception as ex:
             app.logger.error(ex)
             print (ex)
-            return Response(error = ex,status=400,mimetype='text/html')
+            return Response(ex.message,status=400,mimetype='text/html')
 
 @app.route('/ssotoken',methods=["POST"])
 def gettoken():
@@ -46,13 +44,13 @@ def gettoken():
         try:
             data = request.data
             body = json.loads(data)
+            print body
             token = opn.get_federated_session(body)
             return Response(token,status=200)
 
         except Exception as ex:
-            app.logger.error(ex)
             print (ex)
-            return Response(error = ex,status=400,mimetype='text/html')
+            return Response(ex.message,status=400,mimetype='application/json')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
