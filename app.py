@@ -1,7 +1,7 @@
 from flask import Flask, request, json,Response
 import os
 
-import  openstackssotoken as opn
+import openstackssotoken as opn
 
 app = Flask(__name__)
 cwd = os.getcwd()

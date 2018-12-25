@@ -3,9 +3,6 @@ from keystoneauth1.identity.v3 import Token
 from keystoneauth1.extras._saml2.v3.saml2 import Password as SAMLPassword
 from keystoneclient.v3.client import Client
 
-from novaclient import client
-import os
-
 def get_federated_session(body):
     # authenticate to the idp
     saml_auth = SAMLPassword(auth_url=body["OS_AUTH_URL".lower()],

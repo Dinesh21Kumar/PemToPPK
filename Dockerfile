@@ -17,7 +17,8 @@ RUN    pip install pathlib \
     && pip install python-keystoneclient
 
 # Bundle app source code
-COPY app.py .
+
+COPY . .
 
 EXPOSE 5000
 ENTRYPOINT ["python", "/usr/src/app/app.py"] 
