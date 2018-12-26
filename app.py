@@ -49,7 +49,8 @@ def gettoken():
             return Response(token,status=200)
 
         except Exception as ex:
-            print (ex)
+            print ("in exception")
+            print ex
             return Response(ex.message,status=400,mimetype='application/json')
 
 if __name__ == '__main__':

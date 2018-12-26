@@ -5,6 +5,7 @@ from keystoneclient.v3.client import Client
 
 def get_federated_session(body):
     # authenticate to the idp
+    
     saml_auth = SAMLPassword(auth_url=body["OS_AUTH_URL".lower()],
                              identity_provider=body["OS_IDENTITY_PROVIDER".lower()],
                              identity_provider_url=body["OS_IDENTITY_PROVIDER_URL".lower()],
@@ -37,5 +38,9 @@ def get_federated_session(body):
     return token
     # federated_session = session.Session(auth=scoped_token,verify=False)
     # return target_project, federated_session
+
+
+
+
 
 
